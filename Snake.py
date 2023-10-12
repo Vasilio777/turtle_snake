@@ -49,9 +49,15 @@ class Snake():
         self.head.seth(self.curr_h)
         self.head.forward(self.step_size)
 
-    # TODO: implement
+    def is_body_collision(self):
+        for body_i in range(len(self.body) - 1):
+            if self.head.distance(self.body[body_i]) < 1:
+                return True
+        return False
+
     def extend(self):
-        pass
+        body_part = self.create_cell(pos=self.body[0].pos(), shape='square', color='black')
+        self.body.insert(0, body_part)
 
     def render(self):
         for i in range(len(self.body) - 1):
