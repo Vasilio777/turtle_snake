@@ -24,3 +24,6 @@ class Food(turtle.Turtle):
     def render(self, snake_head_pos):
         if self.isvisible():
             self.try_collect(snake_head_pos)
+
+    def on_restart(self):
+        self.ht()
